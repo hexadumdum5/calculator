@@ -90,16 +90,19 @@ def main(page: ft.Page):
     # 초기 계산 실행
     calculate()
 
-    # --- 화면 배치 ---
+   # --- 화면 배치 ---
     page.add(
-        # 수정 3: ft.colors.INDIGO 대신 "indigo" 사용
-        ft.Text("💡 수율 & 반응비 자동 분석", size=22, weight="bold", color="indigo"),
-        ft.Divider(),
-        react_formula_input, react_mass_input,
-        prod_formula_input, prod_mass_input,
-        ft.Divider(),
-        info_text,
-        result_text
+        ft.SafeArea(
+            ft.Column([
+                ft.Text("💡 수율 & 반응비 자동 분석", size=22, weight="bold", color="indigo"),
+                ft.Divider(),
+                react_formula_input, react_mass_input,
+                prod_formula_input, prod_mass_input,
+                ft.Divider(),
+                info_text,
+                result_text
+            ])
+        )
     )
 
 # 수정 4: 최신 권장 실행 방식 반영
